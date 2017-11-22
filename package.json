@@ -1,0 +1,15 @@
+{
+  "name": "mi131-slides",
+  "version": "1.0.0",
+  "description": "Slides for MI131 lecture at FH Kiel",
+  "main": "index.js",
+  "scripts": {
+    "start": "./scripts/start.sh"
+  },
+  "author": "Michael Jonathan Lee",
+  "license": "MIT",
+  "devDependencies": {
+    "markdown-to-slides": "^1.0.5"
+  }
+}
+
