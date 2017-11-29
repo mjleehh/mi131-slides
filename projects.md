@@ -38,12 +38,12 @@ What you can expect to find on a checkout:
 
 Some remarks on what is going to determine grades (in order of importance):
 - functioning software
-- explaining design choices (code and user flow)
+- explaining design choices (code and usage)
 - usability of the software
 - code quality (readable and comprehensible) 
 - test coverage
 - small and well explained git commits (single line commit message)
-- feature richness
+- feature completeness
 
 It is more important to provide running software than a completed project. Better provide a well done feature subset, 
 than a badly done completed project.
@@ -52,14 +52,14 @@ than a badly done completed project.
 
 The client should be implemented using (exceptions may be granted):
    
-    -  `Webpack`
-    -  `React`
-    -  `Redux`
-    -  `socket.io`
+-  `Webpack`
+-  `React`
+-  `Redux`
+-  `socket.io`
 
-The client data model has to be placed in a `Redux` store and should be well designed an normalized to ensure good
-interaction with the backend REST API. Actions and reducers should be defined to reflect all the users actions and make
-the user interface debuggable through message logging. Careful and robust handling of async events is expected.
+The client data model has to be placed in a `Redux` store and should be well designed an normalized to ensure smooth
+exchange with the backend REST API data model. Actions and reducers should be defined to reflect all the users actions 
+and make the user interface debuggable through message logging. Careful and robust handling of async events is expected.
 
 Mobile apps have to be bundled using `Cordova`.
 
@@ -67,9 +67,9 @@ Mobile apps have to be bundled using `Cordova`.
 
 The server should be implemented using:
     
-    - `MongoDB`
-    - `Mongoose`
-    - `Express` or `Koa`
+- `MongoDB`
+- `Mongoose`
+- `Express` or `Koa`
 
 The API has to follow REST principles and may use websockets for push updates to clients. Transactions should be kept
 as atomic as possible through the use of `MongoDB` queries. Use `Mongoose` schemas to ensure typing in the database.
@@ -81,7 +81,11 @@ LEGAL NOTICE: We will be using third party APIs and libraries. All of these a su
 
 ### Water Sports Logbook
 
-`Client Data Model`, `Database Model`,  `Web App`, `Mobile App`, `3rd Party Maps API`
+`Multi Client Architecture`, `Client Data Model`
+
+`Database Model`, `Web App`, `Mobile App`
+
+`3rd Party Maps API`
 
 Rowing and sailing are popular sports in germany. Insurances require rowers/sailors to sign in to a logbook, when 
 hitting the water and sign out on return.
@@ -90,44 +94,46 @@ Such a logbook page looks something like this:
 
 ![logbook page](assets/projects/logbook-page.png)
 
-This paper bound solution has proven solid and works perfectly fine. Extracting data like
+This paper bound method works perfectly fine for most clubs. Its shortcomings are that extracting data like
 
 - which boats has been used how much
 - how often do club members show up in average
 - which distance does a member do in average per week
 
-is very tedious though. To gain acceptance a digital logbook has to be as easy to use and little time consuming as its
-paper bound predecessor.
+has to be done in a manual and tedious manner. 
+
+A digital version could improve this. To gain acceptance a digital logbook has to be as easy to use and little 
+time consuming as its paper bound predecessor.
 
 **Your task:**
 
 Write a web app version of the logbook for public use in the boat house. Add a protected admin interface to manage users
-and boats.
+and boats within this app.
 
-Write a smartphone mobile app that is bound to a specific member and allows her to
+Write a smart phone mobile app that is bound to a specific member and allows her to
 
-- create trip
+- create a new trip
 - sign in to existing trip
-- start trip
-- end trip
+- start a trip
+- end a trip
 
-in a fast and simple way. Make sure all apps are kept in sync.
+in a fast and simple way. Make sure all apps instances are kept in sync.
 
 Extra: Chosing the destination on a map would be a plus!
 
 
 ### Pullution Atlas
 
-`Visualization`, `Web App`, `Mobile App`, `Multi Client Architecture`, `3rd Party Maps API`,
-`Mobile Phone Location API`, `Mock Data Generation`
+`Visualization`, `Mock Data Generation`, `User Encouragement` 
+`Web App`, `Mobile App`, `3rd Party Maps API`,
+`Mobile Phone Location API`
 
-
-Every larger city in the world suffers pollution levels so high they pose a threat to the general public.
-Among German cities Kiel is among those with a high yearly average of pollution:
+Every larger city in the world suffers pollution levels so high they pose a threat to public health.
+Of all German cities Kiel is among those with a high yearly average of pollution:
 
 ![daily maxium NOx levels on a summer day (copyright Umweltbundesamt)](assets/projects/uba-screenshot.png)
 
-All kinds of pollution data can be found at:
+The central german pollution database can be found at:
 
 [Figures by the Umwetbundesamt](https://www.umweltbundesamt.de/en/data/current-concentrations-of-air-pollutants-in-germany#/start?s=q64FAA==&_k=8qajg0)
 
@@ -157,35 +163,39 @@ levels.
 
 **Your task:**
 
-Write a smartphone app for use by the user, that fetches the users location and generates a slightly randomized set of 
+Write a smartphone app for use by the user, that gets the users location and generates a slightly randomized set of 
 pollution levels. Don't make the pollution data totally random. Make sure the data takes time and location into account
-so the statistical total output will be a time dependent pollution map. Visualize the measurements transmitted by the 
-that user and encourage him to
+so the statistical total output will be a time dependent pollution map. Visualize the measurements transmitted by that 
+user and encourage him to
 
-- transmit data regularly from spots that lack regular mesurements
-- transmit this data several times a day
+- transmit data regularly from spots that lack measurements
+- transmit from these spots several times a day
 
-Create a visualization of the pullution map collected by all users and make display it in the
+Create a visualization of the pollution map collected by all users and make display it in the
 mobile app and create another web app to display this data on desktop computers.
   
-Extra: Although the actual pollution data will be generated, presenting data sent from mobile devices to the server 
-will be a plus! 
+Extra: Although the actual pollution data will be generated, presenting data actually sent from mobile devices to the 
+server will be a plus! 
+
 
 ### Mobile Reception Atlas
 
-`Visualization`, `Web App`, `Mobile App`, `3rd Party Maps API`, `Mobile Phone Location API`, 
-`Mobile Phone Reception API`, `User Encouragement`
+`Visualization`, `User Encouragement`
+
+`Web App`, `Mobile App`, `3rd Party Maps API`, `Mobile Phone Location API`
+ 
+`Mobile Phone Reception API`
 
 Although Germany is rather densely populated by European standards one will often experience bad mobile reception 
-outside urban areas. A good example of this is the train journey from Kiel to Hamburg.
+outside urban areas. A good example of this is a train journey from Kiel to Hamburg.
 
 Mobile companies provide their own public data on mobile reception:
 
-[T Mobile reception map](https://www.telekom.de/start/netzausbau)
+[T Mobile](https://www.telekom.de/start/netzausbau)
 
-[Vodafone reception map](https://www.vodafone.de/hilfe/netzabdeckung.html)
+[Vodafone](https://www.vodafone.de/hilfe/netzabdeckung.html)
 
-[O2 reception map](https://www.o2online.de/service/netz-verfuegbarkeit/netzabdeckung/)
+[O2](https://www.o2online.de/service/netz-verfuegbarkeit/netzabdeckung/)
 
 Just as with the air pollution data, we should be sceptical about this data, since this data is an important factor in
 mobile companies advertising their service.
@@ -193,19 +203,23 @@ mobile companies advertising their service.
 **Your task:**
 
 Create a mobile phone app, that reads the phones reception levels and position and sends them to a database. Make sure
-you collect data for each mobile network seperatly. Visualize the measurements transmitted by that user and encourage her
-to send as much data from different locations as possible.
+you collect data for each mobile network separately. Visualize the measurements transmitted by that user and encourage 
+her to send as much data from different locations as possible.
 
 Create a visualization of the reception map collected by all users for all mobile providers and make display it in the
 mobile app and create another web app to display this data on desktop computers.
   
-Extra: Presenting some real data during presentation will be a plus!  
+Extra: Presenting some real data during presentation will be a plus!
 
 
 ### Party Radar
 
-`Mobile App`, `3rd Party Maps API`, `Mobile Phone Location/Photo API`, `3rd Party Data API`, `Binary Data Handling`, 
-`Matching/Prediction`
+`Matching/Prediction`,`Binary Data Handling`
+
+`Mobile App`,
+
+`3rd Party Maps API`, `Mobile Phone Location/Photo API`, `3rd Party Data API` 
+
 
 Due to the large number of students Kiel has quite a number of clubs and bars compared to other small German cities.
 
@@ -218,7 +232,8 @@ including live pictures and a prediction of how much you'll enjoy going to each 
 
 **Your Task:**
 
-This project will require machine learning experience, so do not attempt
+This project will require machine learning experience. Do not attempt to take this project if you lack this 
+experience!
 
 In the server:
 
@@ -228,29 +243,33 @@ In the server:
 
 Write a mobile app, that will
 
-1. display map of your surroundings with all events currently going on.
-2. determines if you are currently in a location and lets you 
+1. display a map of your surroundings with all events currently going on.
+2. determines if you are currently inside a location and lets you 
     - vote if you do or don't like it
     - take instant pictures, that will only be available for 5 minutes from inside your location
-4. let's you view the instant pictures other users took
+4. let's you view the instant pictures other users took of other locations
 5. Uses a prediction algotithm based on location, event and other people, whether you'll enjoy an event
 
 Extra: Use nah.sh HAFAS (see next project) to show you public transport from your current location to an event.
 
 ### Lecture Planner
   
-`Mobile App`, `3rd Party Maps API`, `Mobile Phone Location API`, `3rd Party Data API`, `Complex Data`
+`Complex Data`, `Crawling`
+
+`Mobile App` 
+
+`3rd Party Maps API`, `Mobile Phone Location API`, `3rd Party Data API` 
 
 Kiel has 3 universities 34,000 students. Kiels public transport service 
 [KVG neither provides their own route planning sytem nor a mobile app](http://kvg-kiel.de/en/timetable/route-planner/)
 
-Since most of the getting arround for students involves getting to university and back, why not offer a solution 
+Since most of the getting around for students involves getting to university and back, why not offer a solution 
 specific to this problem? We are looking for a solution to the following question:
 
 "If I want to attend the next event of `class A` and I will start at `location B`, present me with the `n` best ways to
-get there via public transport."
+get there on time via public transport."
 
-The real challenge here is to get at and store the required data!
+The real challenge here is to get at and process the required data!
 
 - the the public transport for Schleswig-Holstein [HAFAS API](http://nah.sh.hafas.de/cgi-bin/query.exe)
 - the event catalog of the [Christian Albrechts Universiät](http://univis.uni-kiel.de/form)
