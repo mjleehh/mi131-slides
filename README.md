@@ -12,6 +12,10 @@ To open a browser and start slide generation with watcher:
 $ npm start -- <slide markdown file name>
 ```
 
+Term Projects:
+
+- [projects](projects.md)
+
 Slides:
 
 - [lecture 1](lecture-01.md)
