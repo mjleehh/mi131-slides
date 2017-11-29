@@ -4,7 +4,8 @@
   "description": "Slides for MI131 lecture at FH Kiel",
   "main": "index.js",
   "scripts": {
-    "start": "./scripts/start.sh"
+    "start": "./scripts/start.sh",
+    "build": "./scripts/build.sh"
   },
   "author": "Michael Jonathan Lee",
   "license": "MIT",
@@ -12,4 +13,3 @@
     "markdown-to-slides": "^1.0.5"
   }
 }
-

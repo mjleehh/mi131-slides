@@ -6,4 +6,4 @@ outFile=$1
 shift
 
 buildCommand=./node_modules/markdown-to-slides/index.js
-${buildCommand} --title --level 3 -o ${outFile} $@ ${inFile}
+${buildCommand} -d -t --level 3 $@ -o ${outFile} ${inFile}
